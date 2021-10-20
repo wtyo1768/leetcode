@@ -43,6 +43,8 @@ int main(){
     int amount = 11;
 
     coinChange(inputs, amount);
-
+    int a = 3;
+    cout<<a--<<endl;
+    cout<<a;
     return 0;
 }
