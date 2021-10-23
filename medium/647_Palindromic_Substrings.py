@@ -25,8 +25,6 @@ class Solution:
         return count
 
 
-
-
 s = "abc"
 # Output: 3
 # Explanation: Three palindromic strings: "a", "b", "c".
