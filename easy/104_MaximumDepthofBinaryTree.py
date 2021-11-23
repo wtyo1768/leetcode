@@ -68,7 +68,7 @@ print('output:', Solution().maxDepth(build_tree(root)))
 
 
 root = []
-Output: 0
+# Output: 0
 print('output:', Solution().maxDepth(build_tree(root)))
 
 

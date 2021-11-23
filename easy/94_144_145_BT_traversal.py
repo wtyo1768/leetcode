@@ -1,5 +1,5 @@
 import sys
-sys.path.append('C:\\Users\\rockyo\\Desktop\\leetcode')
+sys.path.append('/home/rockyo/Desktop/leetcode')
 from ds import build_tree, TreeNode
 
 
