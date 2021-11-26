@@ -32,12 +32,11 @@ class Solution(object):
         """
         count = []
         self.helper(root, count)
-        print(count)
+        # print(count)
         return count[k-1]
         
     def helper(self, node, count):
-        if not node:
-            return
+        if not node: return
         
         self.helper(node.left, count)
         count.append(node.val)
