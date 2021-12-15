@@ -6,7 +6,6 @@ class TreeNode(object):
         self.right = right
 
 def build_tree(root):
-    # q = queue.Queue()
     q = []
     tree = TreeNode(root[0]) if len(root) != 0 else None
     q.append(tree)
