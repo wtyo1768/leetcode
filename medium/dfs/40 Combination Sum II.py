@@ -1,26 +1,28 @@
 
-
 class Solution:
     def combinationSum2(self, candidates, target: int):
         ans = []
+        tail = len(candidates)
         candidates.sort()
 
-        def dfs(eles, target, i):
-            if not target: 
+        def dfs(eles, target, start):
+            if target<0:
+                return
+            if target==0:
                 ans.append(eles)
-                return  
-            if target<0: return
-                
-            for e in range(i, len(candidates)):
-                if e>i and candidates[e]==candidates[e-1]:
+                return
+
+            for i in range(start, tail):
+                ## 一直錯!
+                # if i>0 and candidates[i-1]==candidates[i]:
+                if i>start and candidates[i-1]==candidates[i]:  
                     continue
-                if target-candidates[e]<0:
-                    break   
-                dfs(eles+[candidates[e]], target-candidates[e], e+1)
+                remain = target - candidates[i]
+                if remain<0: break
+                dfs(eles+[candidates[i]], remain, i+1)
 
         dfs([], target, 0)
         return ans
-
 
 candidates =  [10,1,2,7,6,1,5]
 target = 8

@@ -22,6 +22,31 @@ class Solution:
         return  s[l+1:r]
 
 
+
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        ans = ''
+        self.s = s 
+        self.l = len(s)
+        for i in range(self.l):
+            ans = max(self.helper(i, i), ans, key=len)
+            
+            ans = max(self.helper(i, i+1), ans, key=len)
+
+        return ans
+
+    def helper(self, s, e):
+        while(s>=0 and e<self.l and self.s[s]==self.s[e]):
+            s-=1
+            e+=1
+
+        return self.s[s+1:e]
+        
+            
+
+
+
+
 s = "babad"
 # Output: "bab"
 # "aba" is also a valid answer.

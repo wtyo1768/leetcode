@@ -28,7 +28,34 @@ class Solution:
 
         return ans
 
+class Solution:
+    def threeSum(self, nums):
+        
+        ans = []
+        nums.sort()
 
+        for i, t in enumerate(nums[:-2]):
+            
+            if i>0 and nums[i-1]==t: continue
+            x, y = 0, len(nums)-1
+
+            while(x<y):
+                if x==i: x+=1
+                if y==i: y-=1
+                
+                s = nums[x]+nums[y]
+                
+                if   s>-t: y-=1
+                elif s<-t: x+=1
+                else: 
+                    ans.append([nums[i], nums[x], nums[y]])
+                    while(x<y and nums[x]==nums[x+1]):
+                        x+=1
+                    while(x<y and nums[y]==nums[y-1]):
+                        y-=1
+                    x+=1
+                    y-=1
+        return ans
 
 
 

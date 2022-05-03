@@ -2,6 +2,15 @@
 
 
 
+
+
+
+
+
+
+
+
+
 class Solution:
     def countSubstrings(self, s: str) -> int:
         
@@ -23,6 +32,29 @@ class Solution:
             l-=1
             count+=1
         return count
+
+
+
+
+class Solution:
+    def countSubstrings(self, s: str) -> int:
+        self.ans = 0
+        self.s = s
+        self.l = len(s)
+
+        for i in range(0, self.l):
+            # if i%2==0:
+            self.helper(i, i+1)
+            self.helper(i, i)
+
+        return self.ans
+
+
+    def helper(self, s, e):
+        while(s>=0 and e<self.l and self.s[s]==self.s[e]):
+            s-=1
+            e+=1
+            self.ans+=1
 
 
 s = "abc"

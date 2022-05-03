@@ -1,4 +1,6 @@
 
+from tkinter.messagebox import RETRY
+
 
 class Solution:
     def combinationSum(self, candidates, target: int):
@@ -6,16 +8,15 @@ class Solution:
         tail = len(candidates)
         candidates.sort()
 
-        def dfs(eles, target, i):
-            if target==0:
-                ans.append(eles)
-                return  
+        def dfs(eles, target, index):
             if target<0: return
-            
-            for e in range(i, tail):
-                if target-candidates[e]<0:
-                    break   
-                dfs(eles+[candidates[e]], target-candidates[e], e)
+            if target==0: ans.append(eles)
+
+            for i in range(index, tail):
+                t = target - candidates[i]
+                if t<0:break
+                dfs(eles+[candidates[i]], t, i)
+
 
         dfs([], target, 0)
         return ans
